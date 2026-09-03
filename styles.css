@@ -32,6 +32,18 @@ body {
   line-height: 1.7;
 }
 
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(159, 206, 189, 0.22), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(245, 212, 111, 0.22), transparent 20%),
+    radial-gradient(circle at 74% 82%, rgba(238, 129, 109, 0.16), transparent 22%);
+  content: "";
+  animation: background-drift 18s ease-in-out infinite alternate;
+}
+
 a {
   color: inherit;
   text-decoration-thickness: 0.08em;
@@ -72,6 +84,11 @@ button:focus-visible {
   gap: 10px;
   font-weight: 850;
   text-decoration: none;
+  transition: transform 180ms ease;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
 }
 
 .brand-mark {
@@ -87,6 +104,12 @@ button:focus-visible {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   line-height: 1;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.brand:hover .brand-mark {
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: rotate(-5deg) translate(2px, 2px);
 }
 
 .brand-name {
@@ -105,12 +128,14 @@ button:focus-visible {
   font-size: 0.95rem;
   font-weight: 750;
   text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .site-nav a:hover {
   border-color: var(--line);
   background: var(--paper-soft);
   color: var(--ink);
+  transform: translateY(-1px);
 }
 
 main {
@@ -130,6 +155,10 @@ main {
   align-items: center;
   gap: 58px;
   min-height: calc(100svh - 74px);
+}
+
+.hero-copy {
+  animation: rise-in 700ms ease both;
 }
 
 .kicker {
@@ -198,7 +227,7 @@ h3 {
   font-weight: 850;
   text-decoration: none;
   box-shadow: 3px 3px 0 var(--ink);
-  transition: transform 160ms ease, box-shadow 160ms ease;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 .button:hover {
@@ -213,6 +242,7 @@ h3 {
 .desk-panel {
   display: grid;
   gap: 18px;
+  animation: rise-in 780ms ease 120ms both;
 }
 
 .paper-note {
@@ -229,6 +259,7 @@ h3 {
     var(--paper-soft);
   box-shadow: var(--shadow), 8px 8px 0 var(--butter);
   transform: rotate(1deg);
+  animation: note-float 5s ease-in-out infinite;
 }
 
 .paper-note h2 {
@@ -260,6 +291,7 @@ h3 {
   height: 30px;
   border: 1px solid rgba(39, 49, 58, 0.18);
   background: rgba(159, 206, 189, 0.72);
+  animation: tape-settle 620ms ease both;
 }
 
 .tape-left {
@@ -285,6 +317,10 @@ h3 {
   box-shadow: 6px 6px 0 var(--ink);
 }
 
+.tiny-shelf:hover .book {
+  transform: translateY(-4px);
+}
+
 .tiny-shelf::after {
   position: absolute;
   right: 18px;
@@ -302,6 +338,7 @@ h3 {
   width: 30px;
   border: 2px solid var(--ink);
   border-radius: 5px 5px 2px 2px;
+  transition: transform 180ms ease;
 }
 
 .book-blue {
@@ -328,6 +365,11 @@ h3 {
   border: 2px solid var(--ink);
   border-radius: 4px 4px 12px 12px;
   background: var(--paper-soft);
+  transition: transform 180ms ease;
+}
+
+.tiny-shelf:hover .mug {
+  transform: rotate(4deg);
 }
 
 .mug::after {
@@ -381,6 +423,12 @@ h3 {
   min-height: 310px;
   flex-direction: column;
   padding: 24px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.post-card:hover {
+  box-shadow: 2px 2px 0 rgba(39, 49, 58, 0.95);
+  transform: translate(3px, 3px) rotate(-0.35deg);
 }
 
 .featured-post {
@@ -428,6 +476,12 @@ h3 {
 .now-item {
   position: relative;
   padding: 22px 22px 22px 58px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.now-item:hover {
+  box-shadow: 2px 2px 0 rgba(39, 49, 58, 0.95);
+  transform: translate(3px, 3px);
 }
 
 .now-item h3 {
@@ -447,6 +501,7 @@ h3 {
   height: 18px;
   border: 2px solid var(--ink);
   border-radius: 50%;
+  animation: dot-pulse 2.8s ease-in-out infinite;
 }
 
 .dot-green {
@@ -529,6 +584,7 @@ h3 {
     radial-gradient(circle at 82% 66%, rgba(238, 129, 109, 0.34), transparent 24%),
     linear-gradient(135deg, rgba(110, 168, 217, 0.28), rgba(245, 212, 111, 0.32)),
     var(--paper);
+  animation: board-glow 1.8s ease-in-out infinite alternate;
 }
 
 .idea-token {
@@ -554,6 +610,10 @@ h3 {
 .idea-token.is-active {
   opacity: 1;
   pointer-events: auto;
+}
+
+.idea-token.is-caught {
+  animation: token-pop 220ms ease;
 }
 
 .game-controls {
@@ -587,6 +647,12 @@ h3 {
   background:
     linear-gradient(90deg, rgba(238, 129, 109, 0.16) 0 8px, transparent 8px),
     var(--paper-soft);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.about-card:hover {
+  box-shadow: 2px 2px 0 rgba(39, 49, 58, 0.95);
+  transform: translate(3px, 3px);
 }
 
 .about-card::after {
@@ -620,6 +686,11 @@ h3 {
   background: var(--mint);
   font-weight: 850;
   text-decoration: none;
+  transition: transform 160ms ease;
+}
+
+.contact-links a:hover {
+  transform: translateY(-2px) rotate(-1deg);
 }
 
 .contact-links a + a {
@@ -640,12 +711,92 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
   html {
     scroll-behavior: auto;
   }
+}
 
-  .button {
-    transition: none;
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes note-float {
+  0%,
+  100% {
+    transform: rotate(1deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-0.6deg) translateY(-6px);
+  }
+}
+
+@keyframes tape-settle {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) rotate(0deg);
+  }
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes board-glow {
+  from {
+    box-shadow: inset 0 0 0 rgba(39, 49, 58, 0);
+  }
+
+  to {
+    box-shadow: inset 0 0 28px rgba(159, 206, 189, 0.5);
+  }
+}
+
+@keyframes token-pop {
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.12);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes background-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -18px, 0);
   }
 }
 
