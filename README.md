@@ -20,6 +20,6 @@ http://localhost:8000
 
 ## GitHub Pages
 
-仓库已包含 `.github/workflows/pages.yml`。
+仓库已包含 `.github/workflows/static.yml`。
 
 如果在 GitHub 仓库设置里把 Pages 的 Source 配置为 GitHub Actions，推送到 `main` 或 `master` 后会自动部署。

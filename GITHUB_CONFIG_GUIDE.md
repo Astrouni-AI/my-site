@@ -65,7 +65,7 @@ GitHub 平台读取这些约定路径
 .github/
 ├── workflows/
 │   ├── ci.yml
-│   └── pages.yml
+│   └── static.yml
 │
 ├── ISSUE_TEMPLATE/
 │   ├── bug_report.md
@@ -187,9 +187,9 @@ jobs:
 
 这不是复杂项目的最终 CI，而是一个适合学习和体验 GitHub Actions 的入门版本。
 
-## `.github/workflows/pages.yml`
+## `.github/workflows/static.yml`
 
-这个文件定义 GitHub Pages 自动部署流程。
+这个文件定义 GitHub Pages 自动部署流程。当前文件是从 GitHub Pages 的静态站点配置页面生成的。
 
 当前项目是纯静态网站，入口文件是：
 
@@ -248,7 +248,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 ```
 
 解释：
@@ -261,7 +261,7 @@ jobs:
 | `concurrency` | 避免多个 Pages 部署互相覆盖 |
 | `actions/configure-pages@v5` | 初始化 Pages 部署环境 |
 | `actions/upload-pages-artifact@v3` | 把静态网站文件打包成 Pages artifact |
-| `actions/deploy-pages@v4` | 把 artifact 发布到 GitHub Pages |
+| `actions/deploy-pages@v5` | 把 artifact 发布到 GitHub Pages |
 
 使用这个 workflow 前，需要在 GitHub 仓库设置中选择：
 
