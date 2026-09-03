@@ -32,4 +32,4 @@ jobs:
       - name: Check site references
         run: |
           grep -q '<link rel="stylesheet" href="styles.css">' index.html
-          grep -q '<title>Moon 的个人博客</title>' index.html
+          grep -q '<title>Moon Notes | 个人博客</title>' index.html
