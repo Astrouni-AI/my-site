@@ -24,6 +24,7 @@ jobs:
         run: |
           test -f index.html
           test -f styles.css
+          test -f game.js
           test -f README.md
           test -f LICENSE
           test -f .github/CODEOWNERS
@@ -32,4 +33,5 @@ jobs:
       - name: Check site references
         run: |
           grep -q '<link rel="stylesheet" href="styles.css">' index.html
+          grep -q '<script src="game.js"></script>' index.html
           grep -q '<title>Moon Notes | 个人博客</title>' index.html

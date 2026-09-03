@@ -20,6 +20,7 @@
       <nav class="site-nav" aria-label="主导航">
         <a href="#posts">文章</a>
         <a href="#now">近况</a>
+        <a href="#game">小游戏</a>
         <a href="#about">关于</a>
       </nav>
     </header>
@@ -132,6 +133,33 @@
         </div>
       </section>
 
+      <section class="section game-section" id="game" aria-labelledby="game-title">
+        <div class="game-copy">
+          <p class="kicker">Tiny break</p>
+          <h2 id="game-title">接住灵感</h2>
+          <p>
+            写博客也要偶尔歇一下。30 秒内尽量点中冒出来的小贴纸，看看今天能收集多少个想法。
+          </p>
+        </div>
+
+        <div class="game-card">
+          <div class="game-stats" aria-label="游戏状态">
+            <span>分数 <strong id="score">0</strong></span>
+            <span>时间 <strong id="time-left">30</strong>s</span>
+            <span>最佳 <strong id="best-score">0</strong></span>
+          </div>
+
+          <button class="game-board" id="game-board" type="button" aria-label="点击出现的灵感贴纸">
+            <span class="idea-token" id="idea-token">idea</span>
+          </button>
+
+          <div class="game-controls">
+            <button class="button primary" id="start-game" type="button">开始一局</button>
+            <p id="game-message">点开始，然后追着小贴纸点。</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section about-section" id="about" aria-labelledby="about-title">
         <div class="about-card">
           <p class="kicker">About</p>
@@ -151,5 +179,6 @@
     <footer class="site-footer">
       <p>© 2026 Moon Notes. Built with HTML, CSS, and GitHub Pages.</p>
     </footer>
+    <script src="game.js"></script>
   </body>
 </html>
