@@ -77,6 +77,9 @@ token.addEventListener("click", (event) => {
   score += 1;
   scoreText.textContent = String(score);
   message.textContent = score % 5 === 0 ? "连着抓到好几个了。" : "抓到了。";
+  token.classList.remove("is-caught");
+  void token.offsetWidth;
+  token.classList.add("is-caught");
   moveToken();
 });
 
