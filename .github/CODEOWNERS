@@ -1,3 +1,6 @@
 # Default code owner for the whole repository.
 # Replace @your-github-username with your real GitHub username.
+# /backend/ @backend-lead
+# /frontend/ @frontend-lead
+# /database/ @dba
 * @Astrouni-AI
