@@ -64,7 +64,8 @@ GitHub 平台读取这些约定路径
 ```text
 .github/
 ├── workflows/
-│   └── ci.yml
+│   ├── ci.yml
+│   └── pages.yml
 │
 ├── ISSUE_TEMPLATE/
 │   ├── bug_report.md
@@ -185,6 +186,96 @@ jobs:
 如果这些文件不存在，`test -f` 会失败，整个 CI 也会失败。
 
 这不是复杂项目的最终 CI，而是一个适合学习和体验 GitHub Actions 的入门版本。
+
+## `.github/workflows/pages.yml`
+
+这个文件定义 GitHub Pages 自动部署流程。
+
+当前项目是纯静态网站，入口文件是：
+
+```text
+index.html
+```
+
+样式文件是：
+
+```text
+styles.css
+```
+
+因此不需要 npm、Vite、Next.js 或其他构建工具，GitHub Pages 可以直接部署仓库里的静态文件。
+
+示例配置：
+
+```yaml
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy static site
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+解释：
+
+| 配置 | 作用 |
+| --- | --- |
+| `permissions.contents: read` | 允许 workflow 读取仓库内容 |
+| `permissions.pages: write` | 允许 workflow 发布 GitHub Pages |
+| `permissions.id-token: write` | 允许 GitHub Pages 部署使用 OIDC 身份令牌 |
+| `concurrency` | 避免多个 Pages 部署互相覆盖 |
+| `actions/configure-pages@v5` | 初始化 Pages 部署环境 |
+| `actions/upload-pages-artifact@v3` | 把静态网站文件打包成 Pages artifact |
+| `actions/deploy-pages@v4` | 把 artifact 发布到 GitHub Pages |
+
+使用这个 workflow 前，需要在 GitHub 仓库设置中选择：
+
+```text
+Settings
+  ↓
+Pages
+  ↓
+Build and deployment
+  ↓
+Source: GitHub Actions
+```
+
+之后 push 到 `main` 或 `master` 时，就会自动部署。
 
 ## `.github/ISSUE_TEMPLATE/bug_report.md`
 

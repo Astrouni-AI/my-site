@@ -22,7 +22,14 @@ jobs:
 
       - name: Check required files
         run: |
+          test -f index.html
+          test -f styles.css
           test -f README.md
           test -f LICENSE
           test -f .github/CODEOWNERS
           test -f .github/SECURITY.md
+
+      - name: Check site references
+        run: |
+          grep -q '<link rel="stylesheet" href="styles.css">' index.html
+          grep -q '<title>Moon 的个人博客</title>' index.html

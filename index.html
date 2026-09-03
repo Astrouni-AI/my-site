@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="一个用于记录技术、生活和长期思考的个人博客。"
+    >
+    <title>Moon 的个人博客</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>Moon Notes</span>
+      </a>
+
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#posts">文章</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">Personal blog / Field notes</p>
+          <h1 id="hero-title">写一点正在发生的思考。</h1>
+          <p class="hero-text">
+            这里会放技术学习、项目记录、读书笔记，以及一些慢慢变清楚的生活观察。
+            先从一个简单页面开始，之后每次提交都让它更像自己。
+          </p>
+          <div class="hero-actions" aria-label="页面快捷入口">
+            <a class="button primary" href="#posts">看最新文章</a>
+            <a class="button" href="#about">了解我</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="个人介绍卡片">
+          <div class="profile-visual" aria-hidden="true">
+            <span class="moon-shape"></span>
+            <span class="orbit orbit-one"></span>
+            <span class="orbit orbit-two"></span>
+          </div>
+          <p class="profile-label">Now building</p>
+          <h2>个人博客网站</h2>
+          <p>
+            一个轻量的 GitHub Pages 站点，用来练习网页、GitHub Actions 和持续维护。
+          </p>
+        </aside>
+      </section>
+
+      <section class="section" id="posts" aria-labelledby="posts-title">
+        <div class="section-heading">
+          <p class="kicker">Latest posts</p>
+          <h2 id="posts-title">文章草稿</h2>
+        </div>
+
+        <div class="post-list">
+          <article class="post-card">
+            <p class="post-meta">GitHub / 5 min read</p>
+            <h3>我为什么需要一个 `.github/` 目录</h3>
+            <p>
+              记录 GitHub Actions、Issue 模板、PR 模板、CODEOWNERS 和 Dependabot
+              分别解决什么问题。
+            </p>
+            <a href="GITHUB_CONFIG_GUIDE.md">阅读配置笔记</a>
+          </article>
+
+          <article class="post-card">
+            <p class="post-meta">Frontend / Draft</p>
+            <h3>从空仓库到第一个静态页面</h3>
+            <p>
+              把一个只有 README 的仓库，慢慢变成可以被 GitHub Pages 预览的网站。
+            </p>
+            <a href="#contact">先留作草稿</a>
+          </article>
+
+          <article class="post-card">
+            <p class="post-meta">Notes / Draft</p>
+            <h3>给未来自己的项目日志</h3>
+            <p>
+              每次改动都留下一点上下文：为什么改、怎么验证、下一步想做什么。
+            </p>
+            <a href="#contact">继续整理</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="kicker">About</p>
+          <h2 id="about-title">你好，我是 Moon。</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            这是一个个人博客的起点。它暂时不追求复杂功能，而是先把首页、文章入口、
+            GitHub Pages 部署和 GitHub 项目配置串起来。
+          </p>
+          <p>
+            之后可以继续加入文章目录、标签、RSS、深色模式，或者改成更完整的静态博客。
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <p class="kicker">Contact</p>
+        <h2 id="contact-title">这里先放一个联系入口。</h2>
+        <p>
+          你可以把下面的链接替换成自己的 GitHub、邮箱、X、LinkedIn 或其他主页。
+        </p>
+        <div class="contact-links">
+          <a href="https://github.com/" rel="noreferrer">GitHub</a>
+          <a href="mailto:hello@example.com">Email</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Moon Notes. Built for GitHub Pages.</p>
+    </footer>
+  </body>
+</html>
